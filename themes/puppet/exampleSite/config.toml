@@ -4,7 +4,7 @@ title = "Puppet"
 theme = "puppet"
 themesDir = "../.."
 
-copyright = ""
+copyright = "" 
 paginate = 3
 languageCode = "en"
 defaultContentLanguage = "en"
