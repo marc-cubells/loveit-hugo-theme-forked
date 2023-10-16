@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frameworks on P-Tech Blog</title>
+    <link>http://example.org/tags/frameworks/</link>
+    <description>Recent content in frameworks on P-Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/frameworks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to the P-Tech Blog</title>
+      <link>http://example.org/new_blog/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/new_blog/</guid>
+      <description>💥 P-Tech has its own blog 🎉 and we&amp;rsquo;re glad you found it 😃. Below a few words on the why, what and how of this blog. May it prosper!
+The WhyBefore jumping into any activity, it&amp;rsquo;s always good to ask yourself Why you&amp;rsquo;re doing it. And that&amp;rsquo;s not any different for a blog.
+Here are the main resons why we think it&amp;rsquo;s a great idea:
+A blog is a great way to showcase and present our internal projects.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>how-to on P-Tech Blog</title>
+    <link>http://example.org/tags/how-to/</link>
+    <description>Recent content in how-to on P-Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 05 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linking VS Code to GitHub Repositories</title>
+      <link>http://example.org/vscode_github/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/vscode_github/</guid>
+      <description>Visual Studio Code (VS Code) is a powerful code editor that has become increasingly popular among developers. One of its many strengths is the ability to integrate seamlessly with version control systems, especially GitHub. This guide will walk you through the process of connecting VS Code to your GitHub repositories, making it easier than ever to code, commit, and push.
+Prerequisites Install Visual Studio Code. Install Git. Create a GitHub account.</description>
+    </item>
+    
+  </channel>
+</rss>

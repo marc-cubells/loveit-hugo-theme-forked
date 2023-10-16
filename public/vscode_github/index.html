@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Linking VS Code to GitHub Repositories | P-Tech Blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="Linking VS Code to GitHub Repositories">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linking VS Code to GitHub Repositories"/>
+<meta name="twitter:description" content="Linking VS Code to GitHub Repositories"/>
+
+  <meta property="og:title" content="Linking VS Code to GitHub Repositories" />
+<meta property="og:description" content="Linking VS Code to GitHub Repositories" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/vscode_github/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-05T00:00:00+00:00" />
+<meta property="og:see_also" content="http://example.org/langchain/" /><meta property="og:see_also" content="http://example.org/google_apps_script/" /><meta property="og:see_also" content="http://example.org/new_blog/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  <link rel="alternate" type="text/plain" href="/vscode_github/index.md" title="P-Tech Blog" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top ">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://example.org/">P-Tech Blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/posts/" title="Posts">Posts</a></li>
+          
+          <li><a href="/tags/" title="Tags">Tags</a></li>
+          
+          <li><a href="https://github.com/philico-tech" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="Type to search...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('/img/new_blog/hugo_bg.png');
+  }
+</style>
+
+<header class="intro-header ">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/development/" title="development">development</a>
+            
+            <a class="tag" href="/tags/how-to/" title="how-to">how-to</a>
+            
+            <a class="tag" href="/tags/vscode/" title="vscode">vscode</a>
+            
+            <a class="tag" href="/tags/tools/" title="tools">tools</a>
+            
+          </div>
+          <h1>Linking VS Code to GitHub Repositories</h1>
+          <h2 class="subheading">Code effortlessly in Visual Studio Code and sync with your GitHub Repositories</h2>
+          <span class="meta">
+            Posted by  Marc Cubells 
+            on Thu, Oct 5, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p>Visual Studio Code (VS Code) is a powerful code editor that has become increasingly popular among developers. One of its many strengths is the ability to integrate seamlessly with version control systems, especially GitHub. This guide will walk you through the process of connecting VS Code to your GitHub repositories, making it easier than ever to code, commit, and push.</p>
+<h2 id="prerequisites">Prerequisites<a class="anchorjs-link" href="#prerequisites"></a></h2><ul>
+<li>Install <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>.</li>
+<li>Install <a href="https://git-scm.com/" target="_blank">Git</a>.</li>
+<li>Create a <a href="https://github.com/" target="_blank">GitHub</a> account.</li>
+</ul>
+<h2 id="quickstart-guide">Quickstart Guide<a class="anchorjs-link" href="#quickstart-guide"></a></h2><h3 id="1-install-the-github-extension-for-visual-studio-code">1. Install the GitHub Extension for Visual Studio Code<a class="anchorjs-link" href="#1-install-the-github-extension-for-visual-studio-code"></a></h3><p>Before connecting to a GitHub repository, you&rsquo;ll need to have the GitHub extension installed.</p>
+<ol>
+<li>Open VS Code.</li>
+<li>Navigate to the Extensions view by clicking on the square icon on the sidebar, or press <code>Ctrl+Shift+X</code>.</li>
+<li>Search for &ldquo;GitHub&rdquo; in the search bar.</li>
+<li>Find the official <code>GitHub Repositories</code> extension provided by GitHub and click <code>Install</code>.</li>
+</ol>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="github_extension.png" data-action="zoom" alt="github_extension"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="2-clone-your-repository">2. Clone Your Repository<a class="anchorjs-link" href="#2-clone-your-repository"></a></h3><p>Once you have the GitHub extension installed, you can clone your repository:</p>
+<ol>
+<li>
+<p>Press <code>F1</code> to open the command palette.</p>
+</li>
+<li>
+<p>Type <code>Git: Clone</code> and select it.
+<figure>
+  <a class="paragraph-image">
+    <img data-src="image.png" data-action="zoom" alt="image"  class="lazyload">
+  </a>
+  
+</figure></p>
+</li>
+<li>
+<p>Enter your GitHub Repository&rsquo;s URL.</p>
+</li>
+<li>
+<p>Choose a directory on your computer where you&rsquo;d like to store the code.</p>
+</li>
+<li>
+<p>Open the cloned repository in VS Code.</p>
+</li>
+</ol>
+<h3 id="3-authenticate-with-github">3. Authenticate with GitHub<a class="anchorjs-link" href="#3-authenticate-with-github"></a></h3><p>To push or pull changes, you&rsquo;ll need to authenticate:</p>
+<ol>
+<li>In VS Code, open the command palette with <code>F1</code>.</li>
+<li>Type <code>GitHub: Sign in</code> and select it.
+<figure>
+  <a class="paragraph-image">
+    <img data-src="image-1.png" data-action="zoom" alt="image-1"  class="lazyload">
+  </a>
+  
+</figure></li>
+<li>Follow the prompts to authenticate using either a token or your login credentials.</li>
+</ol>
+<h3 id="4-making-changes-and-pushing-to-github">4. Making Changes and Pushing to GitHub<a class="anchorjs-link" href="#4-making-changes-and-pushing-to-github"></a></h3><p>With the repository cloned and authentication set up, you can now make changes to your code:</p>
+<ol>
+<li>Make changes to your files in VS Code.</li>
+<li>Open the <code>Source Control</code> panel by clicking the branching icon on the sidebar.</li>
+<li>Click the <code>Commit</code>button to commit your changes:
+<figure>
+  <a class="paragraph-image">
+    <img data-src="image-6.png" data-action="zoom" alt="image-6"  class="lazyload">
+  </a>
+  
+</figure></li>
+<li>Click the <code>Sync Changes</code> button to push your commits to your GitHub Repository.
+<figure>
+  <a class="paragraph-image">
+    <img data-src="image-7.png" data-action="zoom" alt="image-7"  class="lazyload">
+  </a>
+  
+</figure></li>
+</ol>
+<h2 id="5-pulling-changes-from-github">5. Pulling Changes from GitHub<a class="anchorjs-link" href="#5-pulling-changes-from-github"></a></h2><p>If you&rsquo;re working in a team or across different machines, you might want to pull the latest changes from GitHub:</p>
+<ol>
+<li>Open the <code>Source Control</code> panel by clicking the branching icon on the sidebar.</li>
+<li>Click the <code>...</code> icon and choose <code>Pull</code> to fetch the latest updates.
+<figure>
+  <a class="paragraph-image">
+    <img data-src="image-4.png" data-action="zoom" alt="image-4"  class="lazyload">
+  </a>
+  
+</figure></li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="anchorjs-link" href="#conclusion"></a></h2><p>Connecting VS Code to a GitHub repository offers a seamless development experience. By integrating these tools, you can enjoy the robust code editing features of VS Code while easily tracking and managing changes with GitHub. Embrace this setup to streamline your coding and collaboration endeavors!</p>
+<hr>
+<p><em><strong>References:</strong></em></p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub" target="_blank">Visual Studio Marketplace - GitHub Repositories Extension</a></li>
+</ul>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/google_apps_script/" data-toggle="tooltip" data-placement="top" title="Streamlining Google Apps Script with Clasp">
+              Previous<br>
+              <span>Streamlining Google Apps Script with Clasp</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/langchain/" data-toggle="tooltip" data-placement="top" title="AI Prototyping with LangChain and Streamlit">
+              Next<br>
+              <span>AI Prototyping with LangChain and Streamlit</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/ai/">ai</a>
+    
+    <a href="/tags/blog/">blog</a>
+    
+    <a href="/tags/clasp/">clasp</a>
+    
+    <a href="/tags/development/">development</a>
+    
+    <a href="/tags/frameworks/">frameworks</a>
+    
+    <a href="/tags/gas/">gas</a>
+    
+    <a href="/tags/how-to/">how-to</a>
+    
+    <a href="/tags/hugo/">hugo</a>
+    
+    <a href="/tags/langchain/">langchain</a>
+    
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/vscode/">vscode</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; P-Tech Blog 2023  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

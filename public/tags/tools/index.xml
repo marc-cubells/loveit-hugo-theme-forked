@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on P-Tech Blog</title>
+    <link>http://example.org/tags/tools/</link>
+    <description>Recent content in tools on P-Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Prototyping with LangChain and Streamlit</title>
+      <link>http://example.org/langchain/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/langchain/</guid>
+      <description>In the dynamic world of AI and ML, there&amp;rsquo;s a constant quest for tools that make life easier for developers. Tools that not only boost productivity but also speed up the journey from idea to final product. Meet LangChain and Streamlit – two powerful platforms that, when combined, can supercharge your AI development process.
+LangChain, an open-source development framework available for Python and JavaScript, offers a seamless way to integrate large language models into applications.</description>
+    </item>
+    
+    <item>
+      <title>Linking VS Code to GitHub Repositories</title>
+      <link>http://example.org/vscode_github/</link>
+      <pubDate>Thu, 05 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/vscode_github/</guid>
+      <description>Visual Studio Code (VS Code) is a powerful code editor that has become increasingly popular among developers. One of its many strengths is the ability to integrate seamlessly with version control systems, especially GitHub. This guide will walk you through the process of connecting VS Code to your GitHub repositories, making it easier than ever to code, commit, and push.
+Prerequisites Install Visual Studio Code. Install Git. Create a GitHub account.</description>
+    </item>
+    
+    <item>
+      <title>Streamlining Google Apps Script with Clasp</title>
+      <link>http://example.org/google_apps_script/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/google_apps_script/</guid>
+      <description>Google Apps Script (GAS) is not just another application development platform; it’s a powerful JavaScript library tailored to interact seamlessly with the G Suite applications such as Google Sheets, Google Docs, Google Slides, Google Calendar, and Gmail. Imagine creating a custom function in Google Sheets that automatically formats your data, or a script in Google Docs that translates your content into a predefined language. Perhaps you&amp;rsquo;d like to automate email workflows in Gmail based on certain triggers.</description>
+    </item>
+    
+  </channel>
+</rss>

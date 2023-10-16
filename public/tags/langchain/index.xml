@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>langchain on P-Tech Blog</title>
+    <link>http://example.org/tags/langchain/</link>
+    <description>Recent content in langchain on P-Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/tags/langchain/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Prototyping with LangChain and Streamlit</title>
+      <link>http://example.org/langchain/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/langchain/</guid>
+      <description>In the dynamic world of AI and ML, there&amp;rsquo;s a constant quest for tools that make life easier for developers. Tools that not only boost productivity but also speed up the journey from idea to final product. Meet LangChain and Streamlit – two powerful platforms that, when combined, can supercharge your AI development process.
+LangChain, an open-source development framework available for Python and JavaScript, offers a seamless way to integrate large language models into applications.</description>
+    </item>
+    
+  </channel>
+</rss>

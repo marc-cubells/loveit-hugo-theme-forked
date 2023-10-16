@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+  <title>Streamlining Google Apps Script with Clasp | P-Tech Blog</title>
+  <meta name="author" content="Puppet">
+  <meta name="description" content="Elevate Your Workflow: Easy App Development with Google Apps Script">
+  <meta name="keywords" content="blog,developer,personal">
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Streamlining Google Apps Script with Clasp"/>
+<meta name="twitter:description" content="Elevate Your Workflow: Easy App Development with Google Apps Script"/>
+
+  <meta property="og:title" content="Streamlining Google Apps Script with Clasp" />
+<meta property="og:description" content="Elevate Your Workflow: Easy App Development with Google Apps Script" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/google_apps_script/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-04T00:00:00+00:00" />
+<meta property="og:see_also" content="http://example.org/langchain/" /><meta property="og:see_also" content="http://example.org/vscode_github/" /><meta property="og:see_also" content="http://example.org/new_blog/" />
+
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="/sass/main.css">
+
+  <link rel="stylesheet" href="/zoomjs/zoom.min.css">
+
+  <script src=/js/lazysizes.min.js></script>
+
+  <link rel="alternate" type="text/plain" href="/google_apps_script/index.md" title="P-Tech Blog" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+
+</head>
+
+
+
+<body ontouchstart="">
+  
+  
+  <nav class="navbar navbar-default navbar-custom navbar-fixed-top ">
+  <div class="container-fluid">
+    
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://example.org/">P-Tech Blog</a>
+    </div>
+    
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          <li><a href="/posts/" title="Posts">Posts</a></li>
+          
+          <li><a href="/tags/" title="Tags">Tags</a></li>
+          
+          <li><a href="https://github.com/philico-tech" title="Github">Github</a></li>
+          
+
+          <li class="search-icon">
+            <a href="javascript:void(0)">
+              <i class="fa fa-search"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+</nav>
+<script>
+  
+  
+  
+  var $body = document.body;
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
+
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      
+      setTimeout(function () {
+        
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
+        }
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
+
+  
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
+
+  
+
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
+</script>
+  
+<div class="search-page">
+  <div class="search-icon-close-container">
+    <span class="search-icon-close">
+      <i class="fa fa-chevron-down"></i>
+    </span>
+  </div>
+  <div class="search-main container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <form></form>
+        <input type="text" id="search-input" placeholder="Type to search...">
+        </form>
+        <div id="search-results" class="mini-post-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+
+
+<style type="text/css">
+  header.intro-header {
+    position: relative;
+    background-image: url('/img/google_apps_script/header_img.png');
+  }
+</style>
+
+<header class="intro-header ">
+
+  <div class="header-mask"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <div class="tags">
+            
+            <a class="tag" href="/tags/development/" title="development">development</a>
+            
+            <a class="tag" href="/tags/tools/" title="tools">tools</a>
+            
+            <a class="tag" href="/tags/clasp/" title="clasp">clasp</a>
+            
+            <a class="tag" href="/tags/gas/" title="gas">gas</a>
+            
+          </div>
+          <h1>Streamlining Google Apps Script with Clasp</h1>
+          <h2 class="subheading">Build Google Apps Script apps locally with clasp</h2>
+          <span class="meta">
+            Posted by  Marc Cubells 
+            on Wed, Oct 4, 2023
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  
+
+
+<article>
+  <div class="container">
+    <div class="row">
+
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              post-container">
+        <p>Google Apps Script (GAS) is not just another application development platform; it’s a powerful JavaScript library tailored to interact seamlessly with the G Suite applications such as Google Sheets, Google Docs, Google Slides, Google Calendar, and Gmail. Imagine creating a custom function in Google Sheets that automatically formats your data, or a script in Google Docs that translates your content into a predefined language. Perhaps you&rsquo;d like to automate email workflows in Gmail based on certain triggers. With GAS, you can create bespoke solutions like these and derive maximum value from the G Suite ecosystem.</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="google_apps_script_1.png" data-action="zoom" alt="Google_Apps_Script"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="key-features-and-benefits-of-gas">Key features and benefits of GAS<a class="anchorjs-link" href="#key-features-and-benefits-of-gas"></a></h2><p>These are some of GAS standout features:</p>
+<ul>
+<li><strong>Custom Menus in G Suite Apps</strong>: Add personalized menus in Google Sheets or Docs to launch your specific scripts with ease.</li>
+<li><strong>Automate Workflows</strong>: Craft scripts to automatically send Gmail messages based on defined criteria, streamlining everyday tasks.</li>
+<li><strong>Integrate Google Services</strong>: Seamlessly merge data between Sheets and Google Contacts, or let form entries instantly generate events in your Google Calendar.</li>
+<li><strong>Web App Development</strong>: Create and roll out web applications tailored for both internal and external users using GAS.</li>
+</ul>
+<p>The adoption of GAS also brings forth a number of tangible benefits:</p>
+<ul>
+<li><strong>Cost-Efficiency</strong>: Eliminate the need for costly third-party integrations with this free offering from Google.</li>
+<li><strong>Flexibility</strong>: Customize solutions to meet specific requirements.</li>
+<li><strong>Security</strong>: Rely on the robust security infrastructure that Google provides for its applications.</li>
+</ul>
+<h2 id="the-challenge-gass-built-in-ide">The Challenge: GAS&rsquo;s Built-in IDE<a class="anchorjs-link" href="#the-challenge-gass-built-in-ide"></a></h2><p>While GAS provides an integrated development environment (IDE) that facilitates quick scripting, it&rsquo;s not without its limitations. Developers often find challenges in:</p>
+<ul>
+<li>Synchronizing their scripts with platforms like <a href="https://github.com" target="_blank">GitHub</a>.</li>
+<li>The absence of features that are standard in popular editors like <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a>.</li>
+<li>Organizing complex codebases efficiently.</li>
+</ul>
+<h2 id="the-solution-clasp">The Solution: <code>clasp</code><a class="anchorjs-link" href="#the-solution-clasp"></a></h2><p>Enter <code>clasp</code> (Command Line Apps Script Projects), a game-changing tool for GAS developers. At its core, <code>clasp</code> acts as a bridge, connecting the proprietary environment of GAS&rsquo;s IDE with the vast world of modern local editors.</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="clasp.png" data-action="zoom" alt="clasp"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>Here&rsquo;s how <code>clasp</code> has eased the GAS development process:</p>
+<ul>
+<li>
+<p><strong>Local Development:</strong> By synchronizing with the GAS remote repository, <code>clasp</code> lets you develop scripts on your local machine. This means you&rsquo;re no longer confined to the online IDE; instead, you can work in the familiar environment of your preferred local editor, be it <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a>, <a href="https://github.com/atom/atom.git" target="_blank">Atom</a>, <a href="https://www.sublimetext.com/3" target="_blank">Sublime</a>, or any other. This not only enhances productivity but also makes coding more enjoyable and efficient. Modern editors come packed with extensions and tools that can aid in development, from linting and formatting to advanced debugging. With <code>clasp</code>, GAS developers can leverage these tools, resulting in cleaner and more efficient code.</p>
+</li>
+<li>
+<p><strong>Version Control:</strong> With your codebase now local, it becomes vastly simpler to manage version control. Traditional tools like <code>git</code> can be employed, offering powerful tracking, branching, and collaboration capabilities.</p>
+</li>
+<li>
+<p><strong>Push to Popular Repositories:</strong> Having your GAS projects stored locally allows them to tap into the collaborative and open-source advantages offered by platforms like <a href="https://github.com" target="_blank">GitHub</a>.</p>
+</li>
+</ul>
+<p>At its core, <code>clasp</code> dismantles the limitations of GAS&rsquo;s IDE, offering developers the flexibility and resources inherent in modern IDEs. The diagram below illustrates a potential integration setup facilitated by <code>clasp</code>. In this model, GAS&rsquo;s IDE seamlessly syncs with Visual Studio Code, which concurrently manages the code base stored in a GitHub Remote Repository.</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="diagram.png" data-action="zoom" alt="diagram"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h2 id="setting-up-clasp-a-step-by-step-guide">Setting Up <code>clasp</code>: A Step-by-step Guide<a class="anchorjs-link" href="#setting-up-clasp-a-step-by-step-guide"></a></h2><p>To help you integrate <code>clasp</code> into your GAS development process, here&rsquo;s a detailed walkthrough:</p>
+<h3 id="1install-nodejs-and-npm">1.Install Node.js and NPM<a class="anchorjs-link" href="#1install-nodejs-and-npm"></a></h3><p>Ensure you have Node.js (version 4.7.4 or later). Download the installer for your platform <a href="https://nodejs.org/en/download/current" target="_blank">here</a>.</p>
+<p>After installation, validate with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>node -v
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>npm -v
+</span></span></code></pre></div><h3 id="2-install-clasp">2. Install <code>clasp</code><a class="anchorjs-link" href="#2-install-clasp"></a></h3><p>For MacOS or Linux:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo npm i @google/clasp -g
+</span></span></code></pre></div><p>If you are using Windows, open the terminal with the action <code>Run as administrator</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>npm i @google/clasp -g
+</span></span></code></pre></div><p>Post-installation, verify with <code>clasp -v</code>.</p>
+<h3 id="3-activate-the-google-apps-script-api">3. Activate the Google Apps Script API<a class="anchorjs-link" href="#3-activate-the-google-apps-script-api"></a></h3><p>Navigate to the Apps Script Settings page, click on <code>Google Apps Script API</code> and toggle the switch to <code>On</code>.</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="google_apps_script_2.png" data-action="zoom" alt="image3"  class="lazyload">
+  </a>
+  
+</figure></p>
+<h3 id="4-authenticate-clasp-with-your-gas-account">4. Authenticate <code>clasp</code> with Your GAS Account<a class="anchorjs-link" href="#4-authenticate-clasp-with-your-gas-account"></a></h3><p>Execute <code>clasp login</code> and follow the browser instructions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>clasp login
+</span></span></code></pre></div><h3 id="5-initialise-a-node-project">5. Initialise a Node Project<a class="anchorjs-link" href="#5-initialise-a-node-project"></a></h3><p>Execute:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>npm init
+</span></span></code></pre></div><p>The end result will be a new <code>package.json</code> file.</p>
+<h3 id="6-retrieve-your-gas-project-files">6. Retrieve Your GAS Project Files<a class="anchorjs-link" href="#6-retrieve-your-gas-project-files"></a></h3><p>Use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>clasp clone + “<span style="color:#ff79c6">[</span>ID of your GAS project<span style="color:#ff79c6">]</span>”
+</span></span></code></pre></div><p>Locate the ID in your GAS remote repository settings:</p>
+<p><figure>
+  <a class="paragraph-image">
+    <img data-src="google_apps_script_3.png" data-action="zoom" alt="image5"  class="lazyload">
+  </a>
+  
+</figure></p>
+<p>As a result, all your GAS files will be created locally on your computer. This will allow you to access them via your preferred IDE.</p>
+<p><em>Note: Local GAS files use the .js extension, but <code>clasp</code> handles the conversion to .gs seamlessly.</em></p>
+<h3 id="7-push-changes-to-the-gas-remote-repository">7. Push changes to the GAS Remote Repository<a class="anchorjs-link" href="#7-push-changes-to-the-gas-remote-repository"></a></h3><p>Once you have written some code, you can deploy it to the GAS Remote Repository with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>clasp push
+</span></span></code></pre></div><p>Optionally, you can create a <code>.claspignore</code> file to list the files that should not be pushed into the GAS Remote Repository.</p>
+<p>Alternitely, you can use <code>clasp push -w</code>. This option stands for <code>watch</code> and it allows <code>clasp</code> to push the code every time you save the file you&rsquo;re working on, so you don&rsquo;t have to run the <code>clasp push</code> command every time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>clasp push -w
+</span></span></code></pre></div><p>You can stop the terminal from listening to changes by pressing <code>Ctrl + C</code> on your keyboard.</p>
+<h3 id="8-pull-changes-from-the-gas-remote-repository-into-your-local-machine">8. Pull changes from the GAS Remote Repository into your local machine<a class="anchorjs-link" href="#8-pull-changes-from-the-gas-remote-repository-into-your-local-machine"></a></h3><p>Use the <code>clasp pull</code> command to fetch the latest from the GAS Remote Repository:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>clasp pull
+</span></span></code></pre></div><h2 id="conclusion">Conclusion<a class="anchorjs-link" href="#conclusion"></a></h2><p>Harnessing the power of Google Apps Script can revolutionize the way you interact with G Suite applications. Coupled with <code>clasp</code>, the potential to innovate, automate, and optimize becomes boundless. Whether you&rsquo;re on a quest to amplify efficiency in your daily tasks or to dive deep into the world of automation, GAS and <code>clasp</code> offer the resources to transform your ideas into reality.</p>
+<hr>
+<p><em><strong>References:</strong></em></p>
+<ul>
+<li><a href="https://developers.google.com/apps-script/guides/clasp" target="_blank">Overview of all clasp features</a></li>
+</ul>
+
+
+        <hr style="visibility: hidden;" />
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/new_blog/" data-toggle="tooltip" data-placement="top" title="Welcome to the P-Tech Blog">
+              Previous<br>
+              <span>Welcome to the P-Tech Blog</span>
+            </a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/vscode_github/" data-toggle="tooltip" data-placement="top" title="Linking VS Code to GitHub Repositories">
+              Next<br>
+              <span>Linking VS Code to GitHub Repositories</span>
+            </a>
+          </li>
+          
+        </ul>
+        <hr style="visibility: hidden;" />
+
+        
+        
+
+
+
+<div class="giscus" id="comments"></div>
+<script src="https://giscus.app/client.js" 
+  data-repo="roninro/hugo-theme-puppet" 
+  data-repo-id="R_kgDOHuvyhw"
+  data-category="General"
+  data-category-id="DIC_kwDOHuvyh84CQjDo"
+  data-mapping="pathname"
+  data-strict="0" 
+  data-reactions-enabled="1" 
+  data-emit-metadata="0" 
+  data-input-position="top"
+  data-theme="light_tritanopia"
+  data-lang="en"
+  crossorigin="anonymous"
+  async>
+  </script>
+
+
+
+
+      </div>
+
+      
+      
+      
+      <div class="
+              col-lg-2 col-lg-offset-0
+              visible-lg-block
+              sidebar-container
+              catalog-container">
+        <div class="side-catalog">
+          <hr class="hidden-sm hidden-xs">
+          <h5>
+            <a class="catalog-toggle" href="#">CATALOG</a>
+          </h5>
+          <ul class="catalog-body"></ul>
+        </div>
+      </div>
+      
+      
+      <div class="
+              col-lg-8 col-lg-offset-2
+              col-md-10 col-md-offset-1
+              sidebar-container">
+
+        
+        
+        <section>
+  
+  
+  <hr class="hidden-sm hidden-xs">
+  
+  <h5>FEATURED TAGS</h5>
+  <div class="tags">
+    
+    <a href="/tags/ai/">ai</a>
+    
+    <a href="/tags/blog/">blog</a>
+    
+    <a href="/tags/clasp/">clasp</a>
+    
+    <a href="/tags/development/">development</a>
+    
+    <a href="/tags/frameworks/">frameworks</a>
+    
+    <a href="/tags/gas/">gas</a>
+    
+    <a href="/tags/how-to/">how-to</a>
+    
+    <a href="/tags/hugo/">hugo</a>
+    
+    <a href="/tags/langchain/">langchain</a>
+    
+    <a href="/tags/tools/">tools</a>
+    
+    <a href="/tags/vscode/">vscode</a>
+    
+  </div>
+</section>
+
+        
+        
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+  
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <ul class="list-inline text-center"></ul>
+
+        <p class="copyright text-muted">
+          Copyright &copy; P-Tech Blog 2023  
+          <br>
+          Powered by <a href="https://gohugo.io">Hugo</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js crossorigin="anonymous"></script>
+
+
+
+<script src="/js/hux-blog.min.c4ea77041cd3edbfc8b2622cd887a9a5d8760a4162d14489e36d2a3fa4c90172.js"></script>
+
+
+<script src=/js/simple-jekyll-search.min.js></script>
+
+
+<script src="/js/search.min.53bce5da475b4d362500e5ce5dddfa22e20e1b9018777411d2020b4b839c9310.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+  function generateCatalog(selector) {
+    _containerSelector = 'div.post-container'
+    
+    var P = $(_containerSelector), a, n, t, l, i, c;
+    a = P.find('h1,h2,h3,h4');
+    
+    $(selector).html('')
+    
+    a.each(function () {
+      n = $(this).prop('tagName').toLowerCase();
+      i = "#" + $(this).prop('id');
+      t = $(this).text();
+      c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+      l = $('<li class="' + n + '_nav"></li>').append(c);
+      $(selector).append(l);
+    });
+    return true;
+  }
+
+  generateCatalog(".catalog-body");
+
+  
+  $(".catalog-toggle").click((function (e) {
+    e.preventDefault();
+    $('.side-catalog').toggleClass("fold")
+  }))
+</script>
+
+
+<script type="text/javascript" src='/js/jquery.nav.min.ade6bde8f9fcc6a4b40852cb892e9f5912340ab8fe1305149d917fdd16fffd8d.js'></script>
+<script>
+   $(document).ready( function () {
+    $('.catalog-body').onePageNav({
+      currentClass: "active",
+      changeHash: !1,
+      easing: "swing",
+      filter: "",
+      scrollSpeed: 700,
+      scrollOffset: 0,
+      scrollThreshold: .2,
+      begin: null,
+      end: null,
+      scrollChange: null,
+      padding: 80
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<script src="/zoomjs/zoom.min.js"></script>
+
+</body>
+
+</html>

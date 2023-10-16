@@ -6,7 +6,7 @@ description: "Linking VS Code to GitHub Repositories"
 date: "2023-10-05"
 
 tags: ["development", "how-to", "vscode", "tools"]
-header_img: "img/vscode_github/vs_code_bg.png"
+header_img: "img/new_blog/hugo_bg.png"
 toc: true
 series: ["Themes Guide"]
 comment: true
