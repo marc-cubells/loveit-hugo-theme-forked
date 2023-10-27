@@ -55,14 +55,7 @@ ignoreErrors = ["error-remote-getjson"] # List of errors to be ignored.
 
   # Configuration for Giscus (Refer: https://giscus.app/)
   [params.giscus]
-    enable = true # Enables Giscus.
-    repo = "roninro/hugo-theme-puppet" # Repository for Giscus.
-    repo_id = "R_kgDOHuvyhw" # Repository ID.
-    category = "General" # Default category.
-    category_id = "DIC_kwDOHuvyh84CQjDo" # Category ID.
-    input_position = "top" # Input box position.
-    theme = "light_tritanopia" # Theme for Giscus.
-    lang = "en" # Language for Giscus.
+    enable = true # Enables Giscus in the blog (comments section engine)
 
   # General Configuration for Pages
   [params.page]
