@@ -32,4 +32,4 @@ In developing this prototype, we utilized Python, due to its efficacy in buildin
 
 [**LangChain**](https://www.langchain.com), an open-source development framework available for Python and JavaScript, offers a seamless way to integrate large language models into applications. On the other hand, [**Streamlit**](https://streamlit.io), is an intuitive framework for creating interactive web applications with minimal effort. 
 
-If you are interested in learning more about these libraries, check out the post we published on our blog: [**AI Prototyping with LangChain and Streamlit**](https://www.langchain.com/blog/ai-prototyping-with-langchain-and-streamlit/).
+If you are interested in learning more about these libraries, check out the post we published on our blog: [**AI Prototyping with LangChain and Streamlit**](https://philico-tech.github.io/ptech-blog/langchain/).
