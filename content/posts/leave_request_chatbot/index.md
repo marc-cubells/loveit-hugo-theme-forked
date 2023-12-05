@@ -78,21 +78,19 @@ The chatbot is capable of performing a variety of tasks, including:
 
 ### Submit new leave requests
 
-As explained above, the chatbot is capable of submitting new leave requests on behalf of the user. The user can specify the type of leave, the start and end dates, and the number of days. The chatbot will then automatically generate a leave request proposal for the user to review.
+As explained above, the chatbot is capable of submitting new leave requests on behalf of the user. The user can specify the type of leave, the start and end dates, and the comments to add to the request. The chatbot will then automatically generate a leave request proposal for the user to review.
 
-<!-- Insert video here  -->
+![demo_1](<demo_1.gif>)
 
-The assistant is also capable of understanding generic expressions, such as "I want to take 5 days off starting tomorrow".
+The assistant is also capable of understanding generic expressions for the leave period, such as "from Tuesday to Thursday next week".
 
-<!-- Insert video here  -->
-
-It also handles more complex expressions, such as "I want to take 5 days off starting tomorrow and ending next Friday".
-
-<!-- Insert video here  -->
+![demo_2](<demo_2.gif>)
 
 Once the leave request proposal has been generated and shown to the user, the user can ask the for amendments. The chatbot will then update the proposal accordingly and show it to the user again. This process can be repeated as many times as needed until the user is satisfied with the proposal.
 
-<!-- Insert video here  -->
+![demo_3](<demo_3.gif>)
+
+![demo_4](<demo_4.gif>)
 
 ### Chat with your leave requests
 
@@ -113,3 +111,12 @@ The chatbot is capable of calculating the number of vacation days needed to cove
 <!-- Insert video here  -->
 
 ## Limitations
+
+<!-- Limitations of GPT3.5 vs. GPT4, the hish costs of using GPT4  -->
+
+## Conclusion
+
+<!-- What I learn, personal opinion on the potential, whether it can be finished or not, the next features that can be added: 
+  - Full HR Chatbot would be the end goal  
+  - User authentication
+  -->
