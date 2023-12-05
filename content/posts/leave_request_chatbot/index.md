@@ -76,7 +76,7 @@ If you are interested in learning more about [**LangChain**](https://www.langcha
 
 The chatbot is capable of performing a variety of tasks, including:
 
-### Submit new leave requests
+### Use Case 1: Submit new leave requests
 
 As explained above, the chatbot is capable of submitting new leave requests on behalf of the user. The user can specify the type of leave, the start and end dates, and the comments to add to the request. The chatbot will then automatically generate a leave request proposal for the user to review.
 
@@ -92,23 +92,21 @@ Once the leave request proposal has been generated and shown to the user, the us
 
 ![demo_4](<demo_4.gif>)
 
-### Chat with your leave requests
+### Use Case 2: Chat with your leave requests
 
-The chatbot is capable of retrieving data related to the user's leave requests. The user can ask the chatbot to show all the leave requests submitted in a specific year, or all the leave requests submitted in a specific month.
+The chatbot is capable of retrieving data related to the user's leave requests that was previously stored in the database. The user can ask the chatbot to show all the leave requests submitted in a specific year, or all the leave requests submitted in a specific month.
 
-<!-- Insert video here  -->
+![demo_5](<demo_5.gif>)
 
-### Check your remaining vacation days
+Furthermore, the chatbot can also be used to retrieve the number of remaining vacation days for the user:
 
-The chatbot is capable of retrieving the number of remaining vacation days for the user:
+![demo_6](<demo_6.gif>)
 
-<!-- Insert video here  -->
+Finally, the chatbot can be used to know the number of vacation days needed to cover a specific period. The user can specify the start and end dates of the period, and the chatbot will calculate the number of days needed to cover it.
 
-### Know how many vacation days you need
+![demo_7](<demo_7.gif>)
 
-The chatbot is capable of calculating the number of vacation days needed to cover a specific period. The user can specify the start and end dates of the period, and the chatbot will calculate the number of days needed to cover it.
-
-<!-- Insert video here  -->
+Just a heads up: we chose OpenAI's LLM Model **GPT-4** for these use cases. Why, you might ask? Our experience showed that while GPT-3.5 had its moments, it wasn't always reliable for our needs in this scenario. **GPT-4**, on the other hand, demonstrates greater consistency in translating natural English into SQL queries, which is crucial for efficiently retrieving data from the database
 
 ## Limitations
 
