@@ -64,27 +64,52 @@ The following diagram illustrates the architecture of our chatbot:
 
 ![agent_diagram](agent_diagram.png)
 
-
-
-<!-- #TODO: Paste a diagram where I can see the agent orchestrator and all the tools available. Do it with Excalibur -->
-
-
-
-
-
 ### What is Streamlit?
 
 ![streamlit_logo](<streamlit_logo.png>)
 
 [**Streamlit**](https://streamlit.io), is an intuitive framework for creating interactive web applications with minimal effort. One of Streamlit’s standout features is its array of ready-to-use components that drastically simplify frontend development, enabling developers to effortlessly build interactive user interfaces
 
-
 If you are interested in learning more about [**LangChain**](https://www.langchain.com) and [**Streamlit**](https://streamlit.io), check out the post we published on our blog: [**AI Prototyping with LangChain and Streamlit**](https://philico-tech.github.io/ptech-blog/langchain/).
-
 
 ## The Chatbot in action
 
-### Use Case #1: Submitting new leave requests
+The chatbot is capable of performing a variety of tasks, including:
 
-### Use Case #2: Chat with your existing leave requests
+### Submit new leave requests
 
+As explained above, the chatbot is capable of submitting new leave requests on behalf of the user. The user can specify the type of leave, the start and end dates, and the number of days. The chatbot will then automatically generate a leave request proposal for the user to review.
+
+<!-- Insert video here  -->
+
+The assistant is also capable of understanding generic expressions, such as "I want to take 5 days off starting tomorrow".
+
+<!-- Insert video here  -->
+
+It also handles more complex expressions, such as "I want to take 5 days off starting tomorrow and ending next Friday".
+
+<!-- Insert video here  -->
+
+Once the leave request proposal has been generated and shown to the user, the user can ask the for amendments. The chatbot will then update the proposal accordingly and show it to the user again. This process can be repeated as many times as needed until the user is satisfied with the proposal.
+
+<!-- Insert video here  -->
+
+### Chat with your leave requests
+
+The chatbot is capable of retrieving data related to the user's leave requests. The user can ask the chatbot to show all the leave requests submitted in a specific year, or all the leave requests submitted in a specific month.
+
+<!-- Insert video here  -->
+
+### Check your remaining vacation days
+
+The chatbot is capable of retrieving the number of remaining vacation days for the user:
+
+<!-- Insert video here  -->
+
+### Know how many vacation days you need
+
+The chatbot is capable of calculating the number of vacation days needed to cover a specific period. The user can specify the start and end dates of the period, and the chatbot will calculate the number of days needed to cover it.
+
+<!-- Insert video here  -->
+
+## Limitations
