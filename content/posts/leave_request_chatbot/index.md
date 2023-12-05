@@ -106,7 +106,9 @@ Finally, the chatbot can be used to know the number of vacation days needed to c
 
 ![demo_7](<demo_7.gif>)
 
-Just a heads up: we chose OpenAI's LLM Model **GPT-4** for these use cases. Why, you might ask? Our experience showed that while GPT-3.5 had its moments, it wasn't always reliable for our needs in this scenario. **GPT-4**, on the other hand, demonstrates greater consistency in translating natural English into SQL queries, which is crucial for efficiently retrieving data from the database
+Just a heads up: we chose OpenAI's LLM Model **GPT-4** for these use cases. Why, you might ask? Our experience showed that while GPT-3.5 had its moments, it wasn't always reliable for our needs in this scenario. **GPT-4**, on the other hand, demonstrates greater consistency in translating natural English into SQL queries, which is crucial for efficiently retrieving data from the database.
+
+<!-- Mention the downside: High cost and low speed -->
 
 ## Limitations
 
