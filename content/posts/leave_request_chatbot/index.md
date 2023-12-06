@@ -14,13 +14,13 @@ comment: true
 draft: false
 ---
 
-In today’s fast-paced corporate world, managing leave requests can often become a cumbersome task, both for employees and HR departments. The traditional approach, often characterized by complex digital platforms and the monotonous task of filling out multiple fields, can be not only time-consuming but also a source of frustration.
+In today’s fast-paced corporate world, managing leave requests can often become a cumbersome task, both for employees and HR departments. The traditional approach, characterized by complex platforms and the monotonous task of filling out multiple fields, can be not only time-consuming but also a source of frustration.
 
 ![leave_request_forms_complexity](leave_request_forms_complexity.png)
 
-Recognizing these challenges, we initiated a project with the aim to transform how leave requests are managed. Leveraging the power of AI, we have developed a chatbot prototype designed to simplify the leave submission process, making it more user-friendly, efficient, and accessible.
+Recognizing these challenges, we initiated a project with the aim to transform how leave requests are treated. Leveraging the power of AI, we have developed a chatbot prototype designed to simplify the leave submission process, making it more user-friendly and accessible.
 
-Envision a system where the usual maze of forms and fields is replaced by a streamlined chat interface. This AI-powered assistant is capable of not only submitting new leave requests for you, but it also offers a comprehensive overview of your leave history.
+Imagine a system where the usual maze of forms and fields is replaced by a streamlined chat interface. This AI-powered assistant is capable of not only submitting new leave requests for you, but it also offers a comprehensive overview of your leave history.
 
 ![chatbot_preview](<chatbot_preview.png>)
 
@@ -32,7 +32,7 @@ In developing this prototype we used Python, due to its efficacy in building com
 
 ![langchain_logo](<langchain_logo.png>)
 
-[**LangChain**](https://www.langchain.com) is a versatile open-source framework designed to build applications leveraging large language models (LLMs). Our chatbot utilizes an LLM as a reasoning engine, which, in LangChain terminology, is referred to as an [**Agent**](https://python.langchain.com/docs/modules/agents/). This agent is responsible for planning and executing actions based on user input.
+[**LangChain**](https://www.langchain.com) is a versatile open-source framework designed to build applications powered by large language models (LLMs). Our chatbot utilizes an LLM as a reasoning engine, which, in LangChain terminology, is referred to as an [**Agent**](https://python.langchain.com/docs/modules/agents/). This Agent is responsible for planning and executing actions based on user input.
 
 The LangChain Agent operates through a structured process:
 
@@ -50,7 +50,17 @@ The architecture of LangChain Agents includes:
 
 - **Tools**: External resources that the agent utilizes to perform specific tasks, ranging from other LLMs to web APIs.
 
-In our prototype, we integrated OpenAI's [**GPT-3.5**](https://platform.openai.com/docs/models/gpt-3-5) and [**GPT-4**](https://openai.com/research/gpt-4) as the reasoning engines. The agent was equipped with tools like SQLDatabaseChain for database interaction, LLMMathChain for mathematical calculations, a datetime module for time-related data, and a PydanticOutputParser for generating JSON formatted Leave Request Proposals.
+In our prototype, we made use of OpenAI LLMs [**GPT-3.5**](https://platform.openai.com/docs/models/gpt-3-5) and [**GPT-4**](https://openai.com/research/gpt-4) as the reasoning engines. We switched between the two models, depending on the task at hand, as we'll discuss later.
+
+The agent was equipped with the following tools:
+
+- The LangChain library [**SQLDatabaseChain**](https://api.python.langchain.com/en/latest/sql/langchain_experimental.sql.base.SQLDatabaseChain.html) for interacting with the relational database.
+
+- The LangChain library [**LLMMathChain**](https://api.python.langchain.com/en/latest/chains/langchain.chains.llm_math.base.LLMMathChain.html#) for performing mathematical calculations.
+
+- The LangChain library [**PydanticOutputParser**](https://python.langchain.com/docs/modules/model_io/output_parsers/pydantic) to generate JSON formatted Leave Request Proposals.
+
+- The Python module [**datetime**](https://docs.python.org/3/library/datetime.html) for managing time and calendar-related functions.
 
 The following diagram illustrates the architecture of our prototype:
 
@@ -60,21 +70,23 @@ The following diagram illustrates the architecture of our prototype:
 
 ![streamlit_logo](<streamlit_logo.png>)
 
-[**Streamlit**](https://streamlit.io) is an intuitive framework designed for creating interactive web applications effortlessly. Its standout feature is the collection of ready-to-use components, which simplifies the development of user-friendly interfaces, making the process of building interactive elements straightforward and efficient.
+[**Streamlit**](https://streamlit.io) is an intuitive framework designed for creating interactive web applications effortlessly. Its standout feature is the collection of ready-to-use components, which simplifies the development of user-friendly interfaces, making the process of building interactive elements straightforward and efficient. We made use of Streamlit to create the chat interface.
 
-For a deeper dive into how [**LangChain**](https://www.langchain.com) and [**Streamlit**](https://streamlit.io) synergize to enhance AI application prototyping, visit our blog post: [**AI Prototyping with LangChain and Streamlit**](https://philico-tech.github.io/ptech-blog/langchain/).
+![langchain_streamlit_diagram](langchain_streamlit_diagram.png)
+
+For a deeper dive into how [**LangChain**](https://www.langchain.com) and [**Streamlit**](https://streamlit.io) can be used together to simplify the prototyping of AI applications, visit our blog post: [**AI Prototyping with LangChain and Streamlit**](https://philico-tech.github.io/ptech-blog/langchain/).
 
 ## The Chatbot in action
 
-Our chatbot prototype showcases versatility in performing a range of tasks:
+Our chatbot prototype demonstrated its ability to handle various tasks:
 
-### Submission of New Leave Requests
+### Use Case #1: Submit a new leave request
 
-This chatbot streamlines the leave request process. Users can easily specify leave types, dates, and add comments. The chatbot, in response, generates a tailored leave request proposal for review.
+Users can use natural language to describe the leave request they want to submit. In response, the chatbot will generate a tailored leave request proposal for review.
 
 ![demo_1](<demo_1.gif>)
 
-It also interprets generic time expressions, such as "from Tuesday to Thursday next week," enhancing user convenience.
+The assistant also understands generic time expressions, such as *from Tuesday to Thursday next week*, enhancing user convenience.
 
 ![demo_2](<demo_2.gif>)
 
@@ -84,34 +96,32 @@ The interactive nature of the chatbot allows for iterative refinements to the le
 
 ![demo_4](<demo_4.gif>)
 
-### Retrieval of existing leave requests
+### Use Case #2: Chat with your leave request history
 
-The chatbot efficiently retrieves leave request data stored in our database, helping the employees to keep track of their leave history and plan future requests accordingly.
+The chatbot is capable of retrieving leave request data stored in the database, helping the employees to keep track of their leave history and plan future requests accordingly.
 
 ![demo_5](<demo_5.gif>)
 
-It also informs users about their remaining vacation days and calculates days needed for specified vacation periods.
+The assistant will also inform users about their remaining vacation days and calculates days needed for specified vacation periods.
 
 ![demo_6](<demo_6.gif>)
 
 ![demo_7](<demo_7.gif>)
 
-As can be seen in the videos above, we chose OpenAI’s **GPT-4** for these use cases. We found that GPT-3.5, while sometimes capable, lacked consistent reliability in translating natural language to SQL queries. **GPT-4**, in contrast, excelled in this aspect, ensuring efficient and accurate data retrieval from our database.
+As can be seen in the videos above, we chose OpenAI’s **GPT-4** for this use case. We found that GPT-3.5, while sometimes capable, lacked consistent reliability in translating natural language to SQL queries. **GPT-4**, in contrast, excelled in this aspect, ensuring accurate data retrieval from the database.
 
-However, it's important to acknowledge the trade-offs that come with using **GPT-4**. The most notable among these is the higher cost. Due to its advanced capabilities, GPT-4 comes with a steeper price tag compared to its predecessors. Additionally, while it's more accurate and sophisticated, it's also a slower when processing queries. This means that while we gain in terms of precision and versatility, we do compromise somewhat on speed and budget. Balancing these factors is a key consideration in the decision-making process.
+However, it's important to acknowledge the trade-offs that come with using **GPT-4**. The most notable among these is the higher cost. **GPT-4** comes with a steeper price tag compared to its predecessors. Additionally, while it's more accurate and sophisticated, it's also a slower when processing queries. This means that while we gain in terms of precision and versatility, we do compromise somewhat on speed and budget. Balancing these factors is a key consideration in the decision-making process.
 
 ## Limitations and potential improvements
 
-As mentioned before, one of the big limitations we found is the erratic behaviour of OpenAI's LLM Model GPT3.5 at translating plain English into SQL Queries. That forced us to switch to GPT-4, which is more accurate but also more expensive. Hopefully, as the technology matures, the price of complex LLMs should decrease, making them more accessible.
+As mentioned before, one of the big limitations we found is the erratic behaviour of OpenAI's LLM Model GPT3.5 at translating plain English into SQL Queries. That forced us to switch to **GPT-4** for this particular use case, which is more accurate but also more expensive. Hopefully, as the technology matures, the price of complex LLMs will decrease, making them more accessible.
 
 In regards to potential improvements and next steps, two main areas come to mind:
 
-- **User authentication**: Implementing unique usernames and passwords for secure, personalized access to leave requests and confidential data.
+- **User authentication**: Implementing unique usernames and passwords for secure, personalized access to leave requests and confidential data is a crucial next step.
 
-- **Full HR Chatbot**: We aim to broaden the chatbot's capabilities beyond leave requests, covering a wider spectrum of HR functions. This includes, among other features, instant access to HR policies, overtime compensation details, and timesheet submissions, enhancing overall HR process efficiency.
+- **Full HR Chatbot**: We aim to broaden the chatbot's capabilities beyond leave requests, covering a wider spectrum of HR functions. This includes, among others, instant access to HR policies, overtime compensation details, and assisted timesheet submission.
 
 ## Conclusion
 
-Developing this AI-powered leave management chatbot has been a journey of discovery and innovation, revealing AI's immense potential in simplifying complex tasks. Through the use of LangChain and Streamlit, combined with OpenAI's LLMs, we've gained insights into the versatility of AI in natural language processing and task execution.
-
-The project highlighted the need for adaptability and continuous improvement in the rapidly evolving AI landscape. As we look forward, we're excited to further refine our chatbot, pushing the limits of AI's capabilities in the workplace.
+Developing this AI-powered leave management chatbot has been a journey of discovery and innovation, revealing AI's immense potential in simplifying complex tasks. The project highlighted the need for adaptability and continuous improvement in the rapidly evolving AI landscape. As we look forward, we're excited to further refine our chatbot, pushing the limits of AI's capabilities in the workplace.
