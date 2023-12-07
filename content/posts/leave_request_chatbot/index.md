@@ -116,7 +116,7 @@ However, it's important to acknowledge the trade-offs that come with using **GPT
 
 ## Limitations and potential improvements
 
-As previously mentioned, a big limitation we encountered was the erratic behavior of OpenAI's LLM Model GPT-3.5 in translating plain English into SQL queries. This inconsistency forced us to switch to **GPT-4** for this particular use case. 
+As previously mentioned, a big limitation we encountered was the erratic behavior of OpenAI's LLM Model GPT-3.5 in translating plain English into SQL queries. This inconsistency forced us to switch to **GPT-4** for this particular use case.
 
 While **GPT-4** proves more accurate overall, it is not without its own limitations, especially when interpreting complex expressions of time, such as *Tuesday in two weeks* or *the first week of September*. In these instances, the chatbot struggled to understand the intended time periods, leading to incorrect results.
 
