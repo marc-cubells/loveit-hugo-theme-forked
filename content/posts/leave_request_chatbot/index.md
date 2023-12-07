@@ -14,13 +14,11 @@ comment: true
 draft: false
 ---
 
-In today’s fast-paced corporate world, managing leave requests can often become a cumbersome task, both for employees and HR departments. The traditional approach, characterized by complex platforms and the monotonous task of filling out multiple fields, can be not only time-consuming but also a source of frustration.
+We set out to run an experiment to see if we could use Large Language Models (LLMs) to create a leave request tool with a chatbot interface that’s actually nice to use. Normally, these kinds of tools rely on classic forms, and let's face it – the user experience is often not great.
 
 ![leave_request_forms_complexity](leave_request_forms_complexity.png)
 
-Recognizing these challenges, we initiated a project with the aim to transform how leave requests are treated. Leveraging the power of AI, we have developed a chatbot prototype designed to simplify the leave submission process, making it more user-friendly and accessible.
-
-Imagine a system where the usual maze of forms and fields is replaced by a streamlined chat interface. This AI-powered assistant is capable of not only submitting new leave requests for you, but it also offers a comprehensive overview of your leave history.
+We also wanted this AI-powered chatbot to do more than just submit leave requests. The idea was to have it give you a full picture of your leave history too – kind of like having your own personal leave management assistant.
 
 ![chatbot_preview](<chatbot_preview.png>)
 
@@ -90,9 +88,11 @@ The assistant also understands generic time expressions, such as *from Tuesday t
 
 ![demo_2](<demo_2.gif>)
 
-The interactive nature of the chatbot allows for iterative refinements to the leave request proposals, based on user feedback.
+The interactive nature of the chatbot allows for iterative refinements to the leave request proposals, based on user feedback. In the following video, we can see how the chatbot deletes one entry from the generated proposal and then updates it according to the user's input.
 
 ![demo_3](<demo_3.gif>)
+
+Bellow, we can see how the chatbot adds a new entry to the generated proposal.
 
 ![demo_4](<demo_4.gif>)
 
@@ -102,9 +102,11 @@ The chatbot is capable of retrieving leave request data stored in the database, 
 
 ![demo_5](<demo_5.gif>)
 
-The assistant will also inform users about their remaining vacation days and calculates days needed for specified vacation periods.
+The chatbot can also inform the user about their remaining vacation days.
 
 ![demo_6](<demo_6.gif>)
+
+It will also calculate the number of days needed to cover a specific period, as shown below.
 
 ![demo_7](<demo_7.gif>)
 
@@ -114,7 +116,9 @@ However, it's important to acknowledge the trade-offs that come with using **GPT
 
 ## Limitations and potential improvements
 
-As mentioned before, one of the big limitations we found is the erratic behaviour of OpenAI's LLM Model GPT3.5 at translating plain English into SQL Queries. That forced us to switch to **GPT-4** for this particular use case, which is more accurate but also more expensive. Hopefully, as the technology matures, the price of complex LLMs will decrease, making them more accessible.
+As previously mentioned, a big limitation we encountered was the erratic behavior of OpenAI's LLM Model GPT-3.5 in translating plain English into SQL queries. This inconsistency forced us to switch to **GPT-4** for this particular use case. 
+
+While **GPT-4** proves more accurate overall, it is not without its own limitations, especially when interpreting complex expressions of time, such as *Tuesday in two weeks* or *the first week of September*. In these instances, the chatbot struggled to understand the intended time periods, leading to incorrect results.
 
 In regards to potential improvements and next steps, two main areas come to mind:
 
