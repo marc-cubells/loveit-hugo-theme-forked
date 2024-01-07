@@ -18,13 +18,19 @@ INTRO TBC
 
 ![data_cleansing_1](data_cleansing_1.png)
 
-## Development with LangChain, Pandas and SQLite
+## Development with SQLite, LangChain and Flask
 
-In developing this prototype we used Python, due to its efficacy in building complex applications with relative ease. Python's rich ecosystem facilitated the integration of three crucial libraries: [**LangChain**](https://www.langchain.com),  [**Flask**](https://flask.palletsprojects.com/en/3.0.x/) and [**SQLite**](https://www.sqlite.org/index.html), each playing a pivotal role in our project.
+In developing this prototype we used Python, due to its efficacy in building complex applications with relative ease. Python's rich ecosystem facilitated the integration of three crucial libraries: [**SQLite**](https://www.sqlite.org/index.html), [**LangChain**](https://www.langchain.com) and [**Flask**](https://flask.palletsprojects.com/en/3.0.x/).
+
+### What is SQLite?
+
+TBC
+
+<img src="sqlite_logo.png" width="45%" height="auto">
 
 ### What is LangChain?
 
-![langchain_logo](<langchain_logo.png>)
+<img src="langchain_logo.png" width="60%" height="auto">
 
 [**LangChain**](https://www.langchain.com) is a versatile open-source framework designed to build applications powered by large language models (LLMs). Our chatbot utilizes an LLM as a reasoning engine, which, in LangChain terminology, is referred to as an [**Agent**](https://python.langchain.com/docs/modules/agents/). This Agent is responsible for planning and executing actions based on user input.
 
@@ -34,43 +40,37 @@ For a deeper dive into how [**LangChain**](https://www.langchain.com) can be use
 
 TBC
 
-![flask_logo](<flask_logo.png>)
+<img src="flask_logo.png" width="45%" height="auto">
 
-### What is SQLite?
-
-TBC
-
-![sqlite_logo](<sqlite_logo.png>)
-
-## Workflow
+## The data Workflow
 
 ![workflow](<workflow.png>)
 
-## The application in action
+## The application in detail
 
-TBC
+The following screenshot shows the unstructured data
 
 ![data_cleansing_2](data_cleansing_2.png)
 
-TBC
+The following screenshot shows the parsed data and the address that are validated by the Google Maps API are highlighted
+
+![data_cleansing_7](data_cleansing_7.png)
+
+The following screenshot shows the parsed data and the address not validated by the Google Maps API are highlighted
 
 ![data_cleansing_3](data_cleansing_3.png)
 
-TBC
-
-![data_cleansing_4](data_cleansing_4.gif)
-
-TBC
-
-![data_cleansing_5](data_cleansing_5.gif)
-
-TBC
+The following screenshot shows the front end
 
 ![data_cleansing_6](data_cleansing_6.png)
 
-TBC
+The following GIF shows ...
 
-![data_cleansing_7](data_cleansing_7.png)
+![data_cleansing_5](data_cleansing_5.gif)
+
+The following GIF shows ...
+
+![data_cleansing_4](data_cleansing_4.gif)
 
 ## Conclusion
 
