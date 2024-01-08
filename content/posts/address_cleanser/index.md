@@ -14,15 +14,15 @@ comment: true
 draft: false
 ---
 
-In our pursuit of streamlining everyday business processes, we've tapped into the advanced capabilities of Large Language Models (LLMs) to parse, correct, and clean unstructured data.
+In our pursuit of streamlining everyday business processes, we've tapped into the capabilities of Large Language Models (LLMs) to parse, correct, and clean unstructured data.
 
-Our objective was clear – to engineer an application capable of interpreting and structuring address data, while at the same time giving the end user the possibility of validating and manually editing the results.
+Our objective was clear – to engineer an application capable of cleansing and structuring address data, while at the same time giving the end user the possibility of validating and editing the results.
 
 ![data_cleansing_1](data_cleansing_1.png)
 
 ## Development with SQLite, LangChain and Flask
 
-In developing this prototype we used Python, due to its efficacy in building complex applications with relative ease. Python's rich ecosystem facilitated the integration of three crucial libraries: [**SQLite**](https://www.sqlite.org/index.html), [**LangChain**](https://www.langchain.com) and [**Flask**](https://flask.palletsprojects.com/en/3.0.x/).
+In developing this prototype, we used Python, due to its efficacy in building complex applications with relative ease. Python's rich ecosystem facilitated the integration of three crucial libraries: [**SQLite**](https://www.sqlite.org/index.html), [**LangChain**](https://www.langchain.com) and [**Flask**](https://flask.palletsprojects.com/en/3.0.x/).
 
 ### What is SQLite?
 
@@ -32,13 +32,13 @@ In developing this prototype we used Python, due to its efficacy in building com
 
 This self-contained, file-based database engine provides a robust and efficient solution for managing data within the application itself. It's an ideal choice for applications that require a compact, portable database without the overhead of server management.
 
-We used [**SQLite**](https://www.sqlite.org/index.html) to create a database that stores the unstructured address data and the results of the AI processing.
+We used [**SQLite**](https://www.sqlite.org/index.html) to create the database that stores the unstructured address data and the results of the AI processing.
 
 ### What is LangChain?
 
 <img src="langchain_logo.png" width="60%" height="auto">
 
-[**LangChain**](https://www.langchain.com) is a versatile open-source framework designed to build applications powered by large language models (LLMs). Our chatbot utilizes an LLM as a reasoning engine, which, in LangChain terminology, is referred to as an [**Agent**](https://python.langchain.com/docs/modules/agents/). This Agent is responsible for planning and executing actions based on user input.
+[**LangChain**](https://www.langchain.com) is a versatile open-source framework designed to build applications powered by large language models (LLMs). In our prototype, we used [**LangChain**](https://www.langchain.com) to send the unstructured address to the LLM, responsible for extracting the different parts of the address.
 
 For a deeper dive into how [**LangChain**](https://www.langchain.com) can be used to simplify the prototyping of AI applications, visit our blog post: [**AI Prototyping with LangChain and Streamlit**](https://philico-tech.github.io/ptech-blog/langchain/).
 
@@ -46,13 +46,13 @@ For a deeper dive into how [**LangChain**](https://www.langchain.com) can be use
 
 <img src="flask_logo.png" width="45%" height="auto">
 
-[**Flask**](https://flask.palletsprojects.com/en/3.0.x/) is a lightweight web application framework written in Python. It's designed to make getting started quick and easy, with the ability to scale up to complex applications. [**Flask**](https://flask.palletsprojects.com/en/3.0.x/) provides a simple interface for handling HTTP requests and responses, as well as a template engine for rendering HTML pages.
+[**Flask**](https://flask.palletsprojects.com/en/3.0.x/) is a web application framework, known for its simplicity and efficiency. It excels in enabling rapid development and offers the scalability necessary for more complex applications.
 
-We used [**Flask**](https://flask.palletsprojects.com/en/3.0.x/) to build a simple web application that allows the user to view and edit the results of the AI processing.
+In our project, we utilized [**Flask**](https://flask.palletsprojects.com/en/3.0.x/) to construct a user-friendly web application that allows the users to interact with, view, and edit the processed data returned by the AI.
 
 ## The dataflow
 
-The diagram below shows the dataflow of the application:
+The diagram below illustrates the dataflow of the application:
 
 ![workflow](<workflow.png>)
 
@@ -68,7 +68,7 @@ The steps can be summarized as follows:
 
 5. The data stored in the SQLite database is displayed in the web application for end-user manual validation and editing.
 
-## The application in action 
+## The application in action
 
 In order to demonstrate how the application works, we'll use a CSV file with the following unstructured address data:
 
@@ -78,11 +78,11 @@ When the application is executed, the first step consists of migrating the data 
 
 ![data_cleansing_8](<data_cleansing_8.png>)
 
-The second step consists of processing the data with the LLM and sending the results to the Google Maps API for validation. The following screenshot shows the results of the LLM processin, where the address that are validated by the Google Maps API are highlighted:
+The second step consists of processing the data with the LLM and sending the results to the Google Maps API for validation. The following screenshot shows the results of the LLM processing, where the address that are validated by the Google Maps API are highlighted:
 
 ![data_cleansing_7](data_cleansing_7.png)
 
-We can see that the LLM is capable of detecting and extracting all the different parts of a full address. Namely: name of the resident(s), street name, street number, postal code, city, country and other details. The address returned by the Google Maps API is also stored, as it might be valuable information for the end user.
+The LLM is capable of detecting and extracting all the different parts of a full address. Namely: name of the resident(s), street name, street number, postal code, city, country and other details. Moreover, the LLM is able to correct typos and infer missing information, such as the postal code, the city or the country.
 
 The third step consists of displaying the results of the LLM processing to the end user. The following screenshot shows the front-end of the web application:
 
@@ -106,5 +106,6 @@ In regards to potential improvements and next steps, two main areas come to mind
 
 ## Conclusion
 
-TBC
+The creation of our address cleansing application has been a practical exploration into the utility of AI in data management. Integrating SQLite, LangChain, and Flask, we've developed a tool that efficiently structures and cleanses address data, enhancing data accuracy. 
 
+This project has not only addressed a common business challenge but also showcased the potential of AI to simplify complex tasks in a straightforward and user-friendly manner.
